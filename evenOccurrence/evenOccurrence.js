@@ -14,9 +14,15 @@ var evenOccurrence = function(arr) {
   // Your code here.
   var obj = {};
 
-  var i;
-
   arr.forEach(function (num) {
+
+    // if(obj[num])
+    // {
+    //       obj[num]=obj[num]+1;
+    // }
+    // else {
+    // obj[num]=1;
+    // }
     obj[num] = (obj[num] ? obj[num] : 0) + 1;
   });
 
