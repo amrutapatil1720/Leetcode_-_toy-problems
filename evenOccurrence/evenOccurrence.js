@@ -12,4 +12,22 @@
 
 var evenOccurrence = function(arr) {
   // Your code here.
+  var obj = {};
+
+  var i;
+
+  arr.forEach(function (num) {
+    obj[num] = (obj[num] ? obj[num] : 0) + 1;
+  });
+
+  for (var i = 0; i < arr.length; i++) {
+    if ( obj[ arr[i] ] % 2 === 0 ) {
+      return arr[i];
+    }
+  }
+
+  return null;
 };
+
+// var even= evenOccurence([1, 7, 2, 4, 5, 6, 8, 9, 6, 4]);
+// console.log(even);

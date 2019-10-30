@@ -18,17 +18,19 @@
 *
 */
 
-var rockPaperScissors = function (vlue) {
+var rockPaperScissors = function (n) {
   // TODO: your solution 
   var array=[];
-  var player=['RRRRR', 'RRRRP', 'RRRRS'];
+  var player=['R', 'S', 'P'];
 
-  for(var i=0;i<player.length;i++)
-    for(var j=0;j<player.length;j++)
-      for(var k=0;k<player.length;k++)
-             array.push(player[k]);
-             array.push(player[j]);
-             array.push(player[i]);
+  for(var i=0;i<player.length;i++){
+    for(var j=0;j<player.length;j++) {
+      for(var k=0;k<player.length;k++){
+             var str=player[i]+player[j]+player[k];
+             array.push(str);
+      }
+    }
+  }
 
 
 
@@ -37,13 +39,56 @@ var rockPaperScissors = function (vlue) {
 };
 //console.log(rockPaperScissors(5));
 
-//another way 
 
-// var rockPaperScissors = function (vlue) {
-// var array=[];
-// var player=['RRRRR', 'RRRRP', 'RRRRS'];
-//read random element from player array at random index value and push it to resulting arrray
-//var ran= player[Math.floor(Math.random() * player.length)];
-//array.push(ran);
-//return array;
+
+
+var rockPaperScissors = function (n) {
+  // //Input: n-number of games to be played
+  // Output: array conatining all solutions
+  
+  // constraints:none
+  //  cases:none
+  
+  var result=[];
+  //If no children, push value to the array;
+  
+  var recurse=function(string)
+  {
+    if(string.length===n){
+       result.push(string);
+       return;
+    }
+  //If there are children,keep following the path
+  recurse(string + 'R');
+  recurse(string + 'P');
+  recurse(string + 'S');
+  }
+  recurse('');
+  return result;
+  }
+  
+  // var op=rockPaperScissors(5);
+  // console.log(op);
+
+  // Third way
+//   rockPaperScissors(5);
+
+// var rockPaperScissors = function (n) {
+//     var player=['R','P','S'];
+//     console.log(player)
+//     var solution=[];
+//     RPS(player, solution,"", n);
+//     console.log(solution)
+    
+// }
+
+// var RPS =  function(player, solution, str, n){
+//     if(str.length==n){
+//         solution.push(str);
+//         return;
+//     }
+//     for(var p=0; p<player.length; p++){
+//         //console.log(player)
+//         RPS(player, solution, str+player[p], n);
+//     }
 // }
