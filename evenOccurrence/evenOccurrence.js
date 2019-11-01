@@ -12,6 +12,7 @@
 
 var evenOccurrence = function(arr) {
   // Your code here.
+  debugger;
   var obj = {};
 
   arr.forEach(function (num) {

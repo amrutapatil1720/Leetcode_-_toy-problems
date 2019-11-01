@@ -17,24 +17,56 @@
 /**
   * Stack Class
   */
-  var Stack = function() {
+ var Stack = function() {
+  var mainObj={};
+var obj=[];
 
-  // add an item to the top of the stack
-    this.push = function(value) {
-    };
+var size=0;
+// add an item to the top of the stack
+mainObj.push = function(value) {
+    obj[size]=value;
+    size++;
+};
 
-  // remove an item from the top of the stack
-    this.pop = function() {
-    };
+// remove an item from the top of the stack
+mainObj.pop = function() {
+    if(size===0)
+    {
+        return "stack empty";
+    }
+    else {
+        var temp=obj[size-1];
+         delete obj[size];
+         size--;
+    }
+   return temp;
+};
 
-  // return the number of items in the stack
-    this.size = function() {
-    };
-  
-  // return the minimum value in the stack
-    this.min = function() {
+// return the number of items in the stack
+mainObj.size = function() {
+    return size;
+};
 
-    };
+// return the minimum value in the stack
+mainObj.min = function() {
+    for(var i=0;i<size;i++) {
+        var temp=obj[i];
+            if(obj[i]<temp) {
+                 var temp=obj[i];
+            }
+    }
+            return temp;
+}
 
-  };
+return mainObj;
+};
 
+// console.log('tests');
+// var example = new Stack();
+// example.push(4);
+// example.push(3)
+// example.min() 
+// example.push(3)
+// example.push(2)
+// example.push(2)
+// example.min() 
