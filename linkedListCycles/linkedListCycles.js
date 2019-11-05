@@ -37,22 +37,17 @@ var Node = function(value) {
 
 var hasCycle = function(linkedList) {
   // TODO: implement me!
+  var slow=linkedList;
+  var fast=linkedList;
   // TODO: implement me!
-  var hasCycleCheck=false;
- // console.log(linkedList.value);
-
-do{
-    linkedList=linkedList.next;
-   // hasCycleCheck=true;
-   var temp=linkedList.value;
-  }while(linkedList.value === null);
-
-  if(temp!== null)
+  while(fast.next!==null && slow && fast)
   {
-    hasCycleCheck=true;
+    slow=slow.next;
+    fast=fast.next.next;
+    if(slow===fast)
+    {
+      return true;
+    }
   }
-  else {
-    hasCycleCheck=false;
-  }
-return hasCycleCheck
+  return false;
 };

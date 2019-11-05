@@ -32,7 +32,42 @@
 
 // Feel free to add helper functions if needed.
 
+//Solution 1- Time Complexity o(n^2).
+// var bubbleSort = function(array) {
+//   // Your code here.
+//   for(var i=0;i<array.length;i++) {
+//     for(var j=i+1;j<array.length;j++) {
+//     if(array[i]>array[j]) {
+//       var temp=array[i];
+//       array[i]=array[j];
+//       array[j]=temp;
+//     }
+//   }
+//   }
+//   return array;
+// };
 
-var bubbleSort = function(array) {
+//Time complexity - O(n)
+var bubbleSort = function (array) {
   // Your code here.
-};
+
+    for (var i = 0; i < array.length; i++) {
+      var ifSwap = false;
+      for (var j = 0; j < array.length-i-1; j++) {
+        if (array[j] > array[j+1]) {
+          var temp = array[j];
+          array[j] = array[j+1];
+          array[j+1] = temp;
+          ifSwap = true;
+        }
+      }
+      if (ifSwap === false) {
+        break;
+      }
+    }
+    return array;
+  };
+  
+
+
+console.log(bubbleSort([6,2,3,4,7,9 ,2]));
