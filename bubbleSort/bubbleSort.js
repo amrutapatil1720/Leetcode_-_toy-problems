@@ -70,4 +70,4 @@ var bubbleSort = function (array) {
   
 
 
-console.log(bubbleSort([6,2,3,4,7,9 ,2]));
+//console.log(bubbleSort([6,2,3,4,7,9 ,2]));
