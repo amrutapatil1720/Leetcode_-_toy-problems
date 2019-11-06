@@ -39,8 +39,7 @@ var quicksort = function(array) {
 
 
 
-/
-//# sourceURL=snippet:///quick%20sort
+
 
 
 
