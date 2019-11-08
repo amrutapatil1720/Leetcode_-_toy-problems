@@ -99,4 +99,31 @@
 
 var mergeSort = function(array) {
   // Your code here.
+  mid=Math.floor(array.length/2);
+  var left=[];
+  var right=[];
+  if(array.length===0 || array.length===1 )
+  {
+      return array;
+  }
+  else
+  if(array.length===2) {
+      if(array[0]>array[array.length-1]) {
+          var temp=array[0];
+          array[0]=array[array.length-1];
+          array[array.length-1]=temp;
+      }
+      return array;
+  }
+  else {
+  for(var i=0;i<array.length;i++) {
+      if(i<mid) {
+          left.push(array[i])
+      }
+      else {
+          right.push(array[i]);
+      }
+  }
+  }
+  return [mergeSort(left),mergeSort(right)];
 };
