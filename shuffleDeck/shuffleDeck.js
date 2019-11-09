@@ -31,9 +31,21 @@
  *   See https://www.dartmouth.edu/~chance/teaching_aids/books_articles/Mann.pdf .
  */
 
-var shuffleDeck = function(deck) {
+var shuffleDeck = function (deck) {
   // Your code here
-};
+  var length = deck.length;
+  var randomIndex;
+
+  while (length > 0) {
+    randomIndex = Math.floor(Math.random() * length);
+    length = length - 1;
+    var temp = deck[length];
+    deck[length] = deck[randomIndex];
+    deck[randomIndex] = temp;
+  }
+
+  return deck;
+  };
 
 // Ordered deck generator provided for your testing convenience
 // (You may alter this function, but an unaltered copy will be used for tests.)
