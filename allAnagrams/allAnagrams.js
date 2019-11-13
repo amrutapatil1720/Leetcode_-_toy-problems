@@ -13,26 +13,30 @@
   */
 
 var allAnagrams = function (string) {
-  var allAnagrams = function (string) {
-    var arr = string.split("");
-    var final = [];
-    // Your code here.
-    for (var i = 0; i < arr.length; i++) {
-      var arr1 = [];
-      for (var j = i + 1; j < arr.length; j++) {
-        for (var k = 0; k < arr.length; k++) {
-          arr1.push(arr[i], arr[j], arr[k]);
-
-        }
+  var arr = string.split("");
+  var final = [];
+  // Your code here.
+  for (var i = 0; i < arr.length; i++) {
+    var arr1 = [];
+    for (var j = i + 1; j < arr.length; j++) {
+      for (var k = 0; k < arr.length; k++) {
+        arr1.push(arr[i], arr[j], arr[k]);
 
       }
+
     }
-      final.push(arr1);
-      var str = ""
-      for (var i = 0; i < final.length; i++) {
-        if (i % 3 === 0) {
+    final.push(arr1);
+    var str = "";
+    var result = [];
+    var count = 0;
+    for (var i = 0; i < final.length; i++) {
 
-        }
+      if (count % 3 !== 0) {
+        str = str + arr[i];
+        count++;
       }
+      result.push(str);
+    }
+  }
   return final;
 };
