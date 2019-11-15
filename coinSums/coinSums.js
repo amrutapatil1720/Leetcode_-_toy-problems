@@ -24,8 +24,27 @@ makeChange(1) === 1
 makeChange(2) === 2
 */
 
-var makeChange = function(total) {
+var makeChange = function (total) {
+    var arr = [1, 2, 5, 10, 20, 50, 100, 200];
+    var len = arr.length;
+    var count = 0
+    var inner = function (total, length) {
+        var current = arr[length];
+        //         if(total===1) {
+        //            count=1;
+        //         } else if(total===2) {
+        //                 count= 2;
+        //          }
 
-};
+        while (total >= 0) {      
+            total=total%current;   
+            total = total - current;
+            count++;
+        }
+    }
+    inner(total, length - 1);
+    return count;
+}
 
-
+// var op = makeChange(5);
+// console.log(op);
