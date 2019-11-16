@@ -18,4 +18,28 @@
  */
 
 var powerSet = function(str) {
+
+    var arr = [];
+    var final = [];
+    arr = str.split("");
+    var s = "";
+    final.push(s);
+    for (var i = 0; i < str.length; i++) {
+        final.push(str.charAt(i));
+        for (var j = i + 1; j < str.length; j++) {
+            var s = str[i].concat(str[j]);
+            final.push(s);
+            if (str.substring(i, j + 1).length > 2) {
+                final.push(str.substring(i, j + 1));
+            }
+
+        }
+
+    }
+
+    return final;
+
 };
+// str="jump";
+// var op=powerSet(str);
+// console.log(op);
