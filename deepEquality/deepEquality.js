@@ -11,5 +11,32 @@
   * don't worry about handling cyclical object structures.
   *
   */
-var deepEquals = function(apple, orange) {
-};
+var deepEquals = function (apple, orange) {
+  var count = 0;
+  if (typeof apple === 'object' && typeof orange === 'object') {
+    for (var key in apple) {
+      if ((typeof apple[key] === 'number') && (typeof orange[key] === 'number')) {
+        count++;
+      }
+      else {
+        for (var i in apple[key])
+          if (apple[key][i] === orange[key][i]) {
+            count++;
+          }
+      }
+
+    }
+  }
+    var size = 0, key;
+    for (key in apple) {
+      if (apple.hasOwnProperty(key)) size++;
+    }
+    //     console.log("size of apple",size);
+    if (count === size) {
+      return true;
+    }
+    else {
+      return false;
+    }
+
+  };
