@@ -11,11 +11,9 @@
   * don't worry about handling cyclical object structures.
   *
   */
-<<<<<<< HEAD
+
 var deepEquals = function(apple, orange) {
-=======
-var deepEquals = function (apple, orange) {
->>>>>>> ae70911cfc50d0b800725b55f72305954bb2306e
+
   var count = 0;
   if (typeof apple === 'object' && typeof orange === 'object') {
     for (var key in apple) {
