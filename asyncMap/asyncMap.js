@@ -37,9 +37,7 @@
  *
  */
 
-var callback=(data) => {
-    return data;
-}
+
 var asyncMap = function(tasks, callback) {
     var count=0;
   
@@ -53,18 +51,21 @@ var asyncMap = function(tasks, callback) {
       })
   }
 };
+asyncMap([
+    function(cb){
+      setTimeout(function(){
+        cb('one');
+      }, 200);
+    },
+    function(cb){
+      setTimeout(function(){
+        cb('two');
+      }, 100);
+    }
+   ],
+    function(results){
+      // the results array will equal ['one','two'] even though
+      // the second function had a shorter timeout.
+     console.log(results); // ['one', 'two']
+   });
 
-var cb = function(arg) {
-    return arg;
-  };
-  
-  var asyncMap = function(tasks, callback) {
-    tasks.map(function(task,index,tasks) {
-      if(index === tasks.length-1) {
-        task(cb);
-        callback(tasks);
-      } else {
-        task(cb);
-      }
-    });
-  };
