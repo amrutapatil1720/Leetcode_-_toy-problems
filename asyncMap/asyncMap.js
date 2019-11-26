@@ -37,6 +37,34 @@
  *
  */
 
-
+var callback=(data) => {
+    return data;
+}
 var asyncMap = function(tasks, callback) {
+    var count=0;
+  
+  for(var i=0;i<tasks.length;i++) {
+      tasks[i](function(results) {
+          array.push(results);
+          count++;
+          if(count===tasks.length-1){
+              callback(results);
+          }
+      })
+  }
 };
+
+var cb = function(arg) {
+    return arg;
+  };
+  
+  var asyncMap = function(tasks, callback) {
+    tasks.map(function(task,index,tasks) {
+      if(index === tasks.length-1) {
+        task(cb);
+        callback(tasks);
+      } else {
+        task(cb);
+      }
+    });
+  };
