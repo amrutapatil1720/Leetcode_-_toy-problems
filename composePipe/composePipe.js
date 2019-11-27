@@ -34,7 +34,33 @@
 'use strict';
 
 var compose = function() {
+    var args=arguments;
+    for(var i=0;i<args.length;i++) {
+        var val=args[1]('amruta');
+        var val2=args[0](val);
+    }
+   return val2;
 };
+var greet = function(name){ return 'hi: ' + name;}
+var exclaim = function(statement) { return statement.toUpperCase() + '!';}
+var welcome = compose(greet, exclaim);
+console.log(welcome);
 
 var pipe = function() {
+    var args=arguments;
+    return function(val) {
+
+    for(var i=0;i<args.length;i++) {
+        var val=args[i](val);
+       
+    }
+    return val;
+    }
 };
+
+
+var add2 = function(number){ return number + 2; }
+   var multiplyBy3 = function(number){ return number * 3; }
+  pipe(add2, multiplyBy3)(5); // 21
+    pipe(add2, multiplyBy3, multiplyBy3)(5) // 63
+   console.log(pipe());
