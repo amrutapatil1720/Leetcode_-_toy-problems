@@ -42,3 +42,23 @@ var getDecimalValue = function(head) {
   var num = parseInt(str, 2);
   return num;
 };
+
+var removeElements = function(head, val) {
+  if (head === null) {
+    return head;
+  }
+  // var list=head;
+
+  while (head != null) {
+    var previous = head;
+    while (previous != null && previous.next != null) {
+      var current = previous.next;
+      if (current.val === val) {
+        previous.next = current.next;
+      } else {
+        previos = previos.next;
+      }
+    }
+  }
+  return head;
+};
